@@ -163,18 +163,22 @@ public class ImageViewer extends JFrame{
 		
 		if(!((dir.charAt(dir.length()-1)) == '/'))
 		    dir += "/";
+
 		File dirFile = new File(dir);
+		count = 0;	       
+		imageFile = "";
+		picList = null;
 		
 		if(!dirFile.isDirectory()){
 		    fileLabel.setText("Need a vaild directory!");
 		    inDir = false;
 		} else {
 		    inDir = true;
-		    count = 0;
 		    fList = dirFile.list();
 		    picList = getPicList(fList);
 		    flength = picList.length;
 		    fileLabel.setText(picList[count]);
+		    imageFile = dir+picList[count];
 		    imageDis.repaint();
 		}
 		
